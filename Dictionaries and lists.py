@@ -5,8 +5,16 @@ class_journal = {
     "Ziad" : [62,71,75],
 }
 
+new_grades = []
+
 def average_grades(grades):
     return sum(grades) / len(grades)
+
+while x != 0:
+    x = input("Enter anything except 0 to add a new student, or 0 to exit: ")
+    student = input("Enter the student's name: ")
+    grade = float(input("Enter the student's grades: "))
+    new_grades.append((student, grade))
 
 for student, grades in class_journal.items():
     rounded_average = round(average_grades(grades), 2)
@@ -34,5 +42,4 @@ for student, grades in class_journal.items():
     sum += sum(grades)
     av = sum / G
 print(f"The average grade for the class is: {round(av, 2)}")
-
 
