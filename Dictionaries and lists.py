@@ -5,6 +5,7 @@ class_journal = {
     "Ziad" : [62,71,75],
 }
 new_grades = []
+G=0
 
 def average_grades(grades):
     return sum(grades) / len(grades)
@@ -13,9 +14,9 @@ x = int(input("Enter any nb except 0 to add a new student, or 0 to exit: "))
 while x != 0:
     print("to exit press enter without entering a name")
     student = input("Enter the student's name: ")
-    grade = float(input("Enter the student's grades: "))
     if student == "":
         break
+    grade = float(input("Enter the student's grades: "))
     new_grades.append((student, grade))
 
 if new_grades != []:
@@ -42,7 +43,6 @@ for student, grades in class_journal.items():
         print(f"{student} has a grade below 70")
 
 for student, grades in class_journal.items():
-    G = 0
     G += len(grades)
 print(f"{G} grades recorded.")
 
