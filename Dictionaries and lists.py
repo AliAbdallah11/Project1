@@ -27,28 +27,29 @@ if new_grades != []:
         else:
             class_journal[student] = [grade]
 
-for student, grades in class_journal.items():
-    rounded_average = round(average_grades(grades), 2)
-    print(f"{student}'s grades are: {grades}" f" with an average of: {rounded_average}")
+with open("class_journal.txt", "w") as file:
 
-max_average = max(average_grades(grades) for grades in class_journal.values())
-top_students = [student for student, grades in class_journal.items() if average_grades(grades) == max_average]
-print(f"The highest average grade in the class is: {top_students}: {round(max_average, 2)}")
+    for student, grades in class_journal.items():
+        rounded_average = round(average_grades(grades), 2)
+        file.write(f"{student}'s grades are: {grades}" f" with an average of: {rounded_average}\n")
 
-for student, grades in class_journal.items():
-    most_consistent_student = min(class_journal, key=lambda student: max(class_journal[student]) - min(class_journal[student]))
-print(f"The most consistent student is: {most_consistent_student} with grades: {class_journal[most_consistent_student]}")
+    max_average = max(average_grades(grades) for grades in class_journal.values())
+    top_students = [student for student, grades in class_journal.items() if average_grades(grades) == max_average]
+    file.write(f"The highest average grade in the class is: {top_students}: {round(max_average, 2)}\n")
 
-for student, grades in class_journal.items():
-    if any(grade < 70 for grade in grades):
-        print(f"{student} has a grade below 70")
+    for student, grades in class_journal.items():
+        most_consistent_student = min(class_journal, key=lambda student: max(class_journal[student]) - min(class_journal[student]))
+    file.write(f"The most consistent student is: {most_consistent_student} with grades: {class_journal[most_consistent_student]}\n")
 
-for student, grades in class_journal.items():
-    G += len(grades)
-print(f"{G} grades recorded.")
+    for student, grades in class_journal.items():
+        if any(grade < 70 for grade in grades):
+            file.write(f"{student} has a grade below 70\n")
 
-for student, grades in class_journal.items():
-    s += sum(grades)
-    av = s / G
-print(f"The average grade for the class is: {round(av, 2)}")
+    for student, grades in class_journal.items():
+        G += len(grades)
+    file.write(f"{G} grades recorded.\n")
 
+    for student, grades in class_journal.items():
+        s += sum(grades)
+        av = s / G
+    file.write(f"The average grade for the class is: {round(av, 2)}")
