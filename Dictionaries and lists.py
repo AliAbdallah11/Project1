@@ -4,16 +4,18 @@ class_journal = {
     "Jana" : [100,97,94],
     "Ziad" : [62,71,75],
 }
-
 new_grades = []
 
 def average_grades(grades):
     return sum(grades) / len(grades)
 
+x = int(input("Enter any nb except 0 to add a new student, or 0 to exit: "))
 while x != 0:
-    x = input("Enter anything except 0 to add a new student, or 0 to exit: ")
+    print("to exit press enter without entering a name")
     student = input("Enter the student's name: ")
     grade = float(input("Enter the student's grades: "))
+    if student == "":
+        break
     new_grades.append((student, grade))
 
 if new_grades != []:
@@ -36,7 +38,7 @@ for student, grades in class_journal.items():
 print(f"The most consistent student is: {most_consistent_student} with grades: {class_journal[most_consistent_student]}")
 
 for student, grades in class_journal.items():
-    if grades < 70:
+    if any(grade < 70 for grade in grades):
         print(f"{student} has a grade below 70")
 
 for student, grades in class_journal.items():
@@ -45,8 +47,8 @@ for student, grades in class_journal.items():
 print(f"{G} grades recorded.")
 
 for student, grades in class_journal.items():
-    sum=0
-    sum += sum(grades)
-    av = sum / G
+    s = 0
+    s += sum(grades)
+    av = s / G
 print(f"The average grade for the class is: {round(av, 2)}")
 
