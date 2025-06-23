@@ -28,3 +28,11 @@ for student, grades in class_journal.items():
     G = 0
     G += len(grades)
 print(f"{G} grades recorded.")
+
+for student, grades in class_journal.items():
+    sum=0
+    sum += sum(grades)
+    av = sum / G
+print(f"The average grade for the class is: {round(av, 2)}")
+
+
