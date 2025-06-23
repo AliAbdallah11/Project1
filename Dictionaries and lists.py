@@ -24,3 +24,7 @@ for student, grades in class_journal.items():
     if grades < 70:
         print(f"{student} has a grade below 70")
 
+for student, grades in class_journal.items():
+    G = 0
+    G += len(grades)
+print(f"{G} grades recorded.")
