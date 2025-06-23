@@ -16,6 +16,13 @@ while x != 0:
     grade = float(input("Enter the student's grades: "))
     new_grades.append((student, grade))
 
+if new_grades != []:
+    for student, grade in new_grades:
+        if student in class_journal:
+            class_journal[student].append(grade)
+        else:
+            class_journal[student] = [grade]
+
 for student, grades in class_journal.items():
     rounded_average = round(average_grades(grades), 2)
     print(f"{student}'s grades are: {grades}" f" with an average of: {rounded_average}")
