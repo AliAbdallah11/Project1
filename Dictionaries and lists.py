@@ -6,6 +6,7 @@ class_journal = {
 }
 new_grades = []
 G=0
+s=0
 
 def average_grades(grades):
     return sum(grades) / len(grades)
@@ -47,7 +48,6 @@ for student, grades in class_journal.items():
 print(f"{G} grades recorded.")
 
 for student, grades in class_journal.items():
-    s = 0
     s += sum(grades)
     av = s / G
 print(f"The average grade for the class is: {round(av, 2)}")
