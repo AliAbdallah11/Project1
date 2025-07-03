@@ -15,4 +15,11 @@ class Student(User):
         self.__enrolled_courses.append(course_name)
     def get_enrolled_courses(self):
         return self.__enrolled_courses
-    
+class Instructor(User):
+    def __init__(self, name, email):
+        super().__init__(name, email)
+        self.__teaching_courses = []
+    def add_course(self, course_name):
+        self.__teaching_courses.append(course_name)
+    def get_teaching_courses(self):
+        return self.__teaching_courses
